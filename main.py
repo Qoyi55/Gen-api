@@ -8,7 +8,8 @@ def load_accounts():
     with open("stocks.txt", "r") as file:
         for line in file:
             if ":" in line:
-                username, password = line.strip().split(":", 1).split("|")[0].strip()
+                username, password = line.strip().split(":", 1)
+                username = username.split("|")[0].strip()
                 accounts.append({"Username": username, "Password": password})
     return accounts
 
